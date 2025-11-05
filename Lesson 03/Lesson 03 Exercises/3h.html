@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="js-con"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+        function App(){
+
+            const [inputText, setInputText] = React.useState("");
+
+            function save(event){
+                setInputText(event.target.value)
+            }
+
+            function reset(){
+                setInputText("")
+            }
+
+            function example(){
+                setInputText("Adnan")
+            }
+
+            return (
+                <>
+                    <input
+                        type="text"
+                        onChange={save}
+                        placeholder="Type a name here"
+                        value={inputText}
+                    />
+                    <button onClick={reset}>
+                        Reset
+                    </button>
+                    <button onClick={example}>
+                        Example
+                    </button>
+                    <p>
+                        Hello {inputText}
+                    </p>
+                </>
+            );
+        }
+
+        const con = document.querySelector(".js-con");
+        ReactDOM.createRoot(con).render(<App />)
+
+    </script>
+</body>
+
+</html>

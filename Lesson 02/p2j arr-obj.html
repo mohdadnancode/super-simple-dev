@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce</title>
+</head>
+<body>
+    <div class="js-con"></div>
+    
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+
+        function ProductDetails({name, price, discountPrice, imageSrc}){
+            
+            return(
+                <div>
+                    <img src={imageSrc} alt="img" width="150px" />
+                    <p>{name}</p>
+                    {discountPrice ? (
+                        <>
+                            <p><del>Price: ₹{price}</del></p>
+                            <p>Discounted Price: ₹{discountPrice}</p>
+                        </>
+                    ) : (
+                        <p>Price: ₹{price}</p>
+                    )}
+                    <button>Add to cart</button>
+                </div>
+            );
+        }
+
+        function App(){
+
+            const card =[
+                {
+                    name: "Cooton Socks",
+                    price: "100",
+                    discountPrice: "55",
+                    imageSrc: "cotton-socks.png",
+                },
+                {
+                    name: "Cooton Socks",
+                    price: "100",
+                    discountPrice: "55",
+                    imageSrc: "tennis-balls.png",
+                },
+                {
+                    name: "Cooton Socks",
+                    price: "100",
+                    discountPrice: "55",
+                    imageSrc: "plain-t-shirt.png",
+                }
+            ]
+            return(
+                <>
+                   {card.map((card,index) => (
+                    <ProductDetails
+                    key={index}
+                    name={card.name}
+                    price={card.price}
+                    discountPrice={card.discountPrice}
+                    imageSrc={card.imageSrc}
+                     />
+                   ))} 
+                </>
+            );
+        }
+
+        const con = document.querySelector(".js-con")
+        ReactDOM.createRoot(con).render(App())
+    </script>
+</body>
+</html>
