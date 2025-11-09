@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .on-btn {
+        background-color: rgb(25, 135, 84);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+
+</head>
+
+<body>
+    <div class="js-con"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+
+        function Button() {
+            return (
+                <>
+                    <button className="on-btn">
+                        ON
+                    </button>
+                </>
+            )
+        }
+
+        function App() {
+            return (
+                <>
+                    <Button />
+                </>
+            );
+        }
+
+        const con = document.querySelector(".js-con");
+        ReactDOM.createRoot(con).render(<App />)
+    </script>
+</body>
+
+</html>
