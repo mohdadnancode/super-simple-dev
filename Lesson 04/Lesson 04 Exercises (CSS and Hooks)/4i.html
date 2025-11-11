@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4I</title>
+
+    <style>
+        body {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            background-color: rgb(200, 200, 200);
+            align-items: center;
+        }
+
+        button {
+            background-color: rgb(25, 135, 84);
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="js-con"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+
+        function App() {
+
+            const [count, setCount] = React.useState(0);
+            const buttonRef = React.useRef();
+
+            function autoClick() {
+                setInterval(() => {
+                    const buttonElem = buttonRef.current;
+                    if (buttonElem) {
+                        buttonElem.click();
+                    }
+                }, 1000);
+            }
+
+            return (
+                <div className="btn">
+                    <button onClick={() => setCount(count + 1)} ref={buttonRef}>
+                        Clicked {count} {count === 1 ? "Time" : "Times"}
+                    </button>
+                    <button onClick={() => setCount(0)}>Reset</button>
+                    <button onClick={autoClick}>Auto Click</button>
+                </div>
+            );
+        }
+
+        const con = document.querySelector(".js-con");
+        ReactDOM.createRoot(con).render(< App />)
+
+    </script>
+
+</body>
+
+</html>

@@ -1,45 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Basics</title>
 </head>
+
 <body>
     <div class="js-con"></div>
-    
+
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
 
     <script type="text/babel">
-        function LoginForm(){
-            return(
+
+        function LoginForm() {
+            return (
                 <>
-                <div>
-                    <input type="emai" placeholder="Email"/>
+                    <div>
+                        <input type="emai" placeholder="Email" />
                     </div>
-                <div>
-                    <input type="password" placeholder="Password"/>
-                </div>
-                <button>login</button>
-                <button>Sign up</button>
+                    <div>
+                        <input type="password" placeholder="Password" />
+                    </div>
+                    <button>login</button>
+                    <button>Sign up</button>
                 </>
             );
         }
 
-        function App(){
-            return(
+        function App() {
+            return (
                 <>
-                <p>Hello, welcome to my website</p>
-                <LoginForm />
+                    <p>Hello, welcome to my website</p>
+                    <LoginForm />
                 </>
             );
         }
 
         const container = document.querySelector(".js-con");
         ReactDOM.createRoot(container).render(<App />);
+
     </script>
 </body>
+
 </html>

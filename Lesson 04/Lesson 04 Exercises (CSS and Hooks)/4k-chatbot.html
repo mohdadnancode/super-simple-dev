@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat-Bot</title>
+    <title>4K</title>
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -218,29 +218,17 @@
             );
         }
 
-        // To use a function as a hook, the function name must
-      // start with "use".
+        function ChatMessages({ chatMessages }) {
 
-      function useAutoScroll(dependencies) {
-        // It's highly recommend to rename this to something
-        // more generic like containerRef. This will make the
-        // code make more sense if we ever reuse this code in
-        // other components.
-        const containerRef = React.useRef(null);
+            const chatMessagesRef = React.useRef(null);
 
             React.useEffect(() => {
-                const containerElem = containerRef.current;
+                const containerElem = chatMessagesRef.current;
                 if (containerElem) {
                     containerElem.scrollTop = containerElem.scrollHeight;
                 }
 
-            }, dependencies);
-
-            return containerRef;
-        }
-
-        function ChatMessages({chatMessages}){
-            const chatMessagesRef = useAutoScroll([chatMessages]);
+            }, [chatMessages]);
 
             return (
                 <div className="chat-message-container" ref={chatMessagesRef}>

@@ -4,24 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4A</title>
-    
-    <style>
-        .on-btn {
-        background-color: rgb(25, 135, 84);
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-    </style>
+    <title>4G</title>
 
 </head>
 
 <body>
     <div class="js-con"></div>
 
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
 
@@ -29,27 +19,33 @@
 
     <script type="text/babel">
 
-        function Button() {
-            return (
-                <>
-                    <button className="on-btn">
-                        ON
-                    </button>
-                </>
-            )
-        }
-
         function App() {
+
+            const [time, setTime] = React.useState(dayjs().format("HH:mm:ss"));
+
+            React.useEffect(() => {
+                const timer = setInterval(() => {
+                    setTime(dayjs().format("HH:mm:ss"));
+                    console.log("Run code");
+                    
+                }, 1000);
+
+                return () => clearInterval(timer);
+            });
+
+
             return (
                 <>
-                    <Button />
+                    <p>Current Time : {time}</p>
                 </>
             );
         }
 
         const con = document.querySelector(".js-con");
-        ReactDOM.createRoot(con).render(<App />)
+        ReactDOM.createRoot(con).render(< App />)
+
     </script>
+
 </body>
 
 </html>
