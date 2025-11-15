@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router';
 import Header from "../components/Header";
 import "./OrdersPage.css";
 
@@ -6,7 +7,9 @@ function OrdersPage() {
   return (
     <>
       <title>Orders</title>
-      < Header />
+      <link rel="icon" type="image/svg+xml" href="orders-favicon.png" />
+
+      <Header />
 
       <div className="orders-page">
         <div className="page-title">Your Orders</div>
@@ -54,11 +57,11 @@ function OrdersPage() {
               </div>
 
               <div className="product-actions">
-                <a href="/tracking">
+                <Link to="/tracking">
                   <button className="track-package-button button-secondary">
                     Track package
                   </button>
-                </a>
+                </Link>
               </div>
 
               <div className="product-image-container">
@@ -83,11 +86,11 @@ function OrdersPage() {
               </div>
 
               <div className="product-actions">
-                <a href="/tracking">
+                <Link to="/tracking">
                   <button className="track-package-button button-secondary">
                     Track package
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -132,11 +135,11 @@ function OrdersPage() {
               </div>
 
               <div className="product-actions">
-                <a href="/tracking">
+                <Link to="/tracking">
                   <button className="track-package-button button-secondary">
                     Track package
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
